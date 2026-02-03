@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine?</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.2s ease;
+    }
+
+    #yesBtn {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Will you be my Valentine? 💖</h1>
+    <button id="yesBtn">Yes 💘</button>
+    <button id="noBtn">No 🙃</button>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+
+    let yesScale = 1;
+    let noScale = 1;
+
+    noBtn.addEventListener("click", () => {
+      yesScale += 0.3;
+      noScale -= 0.25;
+
+      yesBtn.style.transform = `scale(${yesScale})`;
+
+      if (noScale <= 0.2) {
+        noBtn.style.display = "none"; // 💨 disappear
+      } else {
+        noBtn.style.transform = `scale(${noScale})`;
+      }
+    });
+
+    yesBtn.addEventListener("click", () => {
+      document.body.innerHTML = `
+        <h1 style="color:white;font-size:48px;text-align:center;">
+          I love you baby ^_^
+        </h1>
+      `;
+    });
+  </script>
+
+</body>
+</html>
